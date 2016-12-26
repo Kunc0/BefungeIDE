@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-flex.min.css" rel="stylesheet">
+    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
+
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/dropdown_settings.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <title>Befunge IDE</title>
+</head>
+<body>
+    <div id="titlediv">
+        <h2 id="title">Befunge IDE</h2>
+        <hr>
+    </div>
+
+    <div class="table">
+        <div class="load_controls">
+            <button>New Save</button>
+            <button>Load Save</button>
+            <span>
+                <label for="save_select">Load: </label>
+                <select id="save_select">
+                    <option>Save 1</option>
+                </select>
+            </span>
+            <button>Delete</button>
+            <button>Download Save</button>
+        </div>
+        <table class="befunge_code">
+            <tr>
+                <td></td>
+                <td class="control"></td>
+            </tr>
+            <tr>
+                <td class="control"></td>
+                <td class="empty"></td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="instructions">
+        <table>
+            <tbody><tr>
+                <td width="5%"><code>0-9</code></td>
+                <td width="95%">Push this number on the stack</td>
+            </tr>
+            <tr>
+                <td><code>+</code></td>
+                <td>Addition: Pop <i>a</i> and <i>b</i>, then push <i>a</i>+<i>b</i></td>
+            </tr>
+            <tr>
+                <td><code>-</code></td>
+                <td>Subtraction: Pop <i>a</i> and <i>b</i>, then push <i>b</i>-<i>a</i></td>
+            </tr>
+            <tr>
+                <td><code>*</code></td>
+                <td>Multiplication: Pop <i>a</i> and <i>b</i>, then push <i>a</i>*<i>b</i></td>
+            </tr>
+            <tr>
+                <td><code>/</code></td>
+                <td>Integer division: Pop <i>a</i> and <i>b</i>, then push <i>b</i>/<i>a</i>, rounded towards 0.</td>
+            </tr>
+            <tr>
+                <td><code>%</code></td>
+                <td>Modulo: Pop <i>a</i> and <i>b</i>, then push <i>b</i> % <i>a</i>.</td>
+            </tr>
+            <tr>
+                <td><code>!</code></td>
+                <td>Logical NOT: Pop a value. If the value is zero, push 1; otherwise, push zero.</td>
+            </tr>
+            <tr>
+                <td><code>`</code></td>
+                <td>Greater than: Pop <i>a</i> and <i>b</i>, then push 1 if <i>b</i>&gt;<i>a</i>, otherwise zero.</td>
+            </tr>
+            <tr>
+                <td><code>&gt;</code></td>
+                <td>Start moving right</td>
+            </tr>
+            <tr>
+                <td><code>&lt;</code></td>
+                <td>Start moving left</td>
+            </tr>
+            <tr>
+                <td><code>^</code></td>
+                <td>Start moving up</td>
+            </tr>
+            <tr>
+                <td><code>v</code></td>
+                <td>Start moving down</td>
+            </tr>
+            <tr>
+                <td><code>?</code></td>
+                <td>Start moving in a random cardinal direction</td>
+            </tr>
+            <tr>
+                <td><code>_</code></td>
+                <td>Pop a value; move right if value=0, left otherwise</td>
+            </tr>
+            <tr>
+                <td><code>|</code></td>
+                <td>Pop a value; move down if value=0, up otherwise</td>
+            </tr>
+            <tr>
+                <td><code>"</code></td>
+                <td>Start string mode: push each character's ASCII value all the way up to the next <code>"</code></td>
+            </tr>
+            <tr>
+                <td><code>:</code></td>
+                <td>Duplicate value on top of the stack</td>
+            </tr>
+            <tr>
+                <td><code>\</code></td>
+                <td>Swap two values on top of the stack</td>
+            </tr>
+            <tr>
+                <td><code>$</code></td>
+                <td>Pop value from the stack and discard it</td>
+            </tr>
+            <tr>
+                <td><code>.</code></td>
+                <td>Pop value and output as an integer followed by a space</td>
+            </tr>
+            <tr>
+                <td><code>,</code></td>
+                <td>Pop value and output as ASCII character</td>
+            </tr>
+            <tr>
+                <td><code>#</code></td>
+                <td><b>Bridge</b> Skip next cell</td>
+            </tr>
+            <tr>
+                <td><code>p</code></td>
+                <td><b>Put Call</b>. Pop <i>y</i>, <i>x</i>, and <i>v</i>, then change the character at (<i>x</i>,<i>y</i>) in the program to the character with ASCII value <i>v</i></td>
+            </tr>
+            <tr>
+                <td><code>g</code></td>
+                <td><b>Get Call</b> Pop <i>y</i> and <i>x</i>, then push ASCII value of the character at that position in the program</td>
+            </tr>
+            <tr>
+                <td><code>&amp;</code></td>
+                <td>Ask user for a number and push it</td>
+            </tr>
+            <tr>
+                <td><code>~</code></td>
+                <td>Ask user for a character and push its ASCII value</td>
+            </tr>
+            <tr>
+                <td><code>@</code></td>
+                <td>End program</td>
+            </tr>
+            <tr>
+                <td><code>&#9251</code></td>
+                <td>No-op. Does nothing</td>
+            </tr>
+            </tbody></table>
+    </div>
+
+
+</body>
+</html>
