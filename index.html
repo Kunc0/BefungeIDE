@@ -13,12 +13,8 @@
     <link href="css/index.css" rel="stylesheet">
     <link href="css/dropdown_settings.css" rel="stylesheet">
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-
     <title>Befunge IDE</title>
+
 </head>
 <body>
     <div id="titlediv">
@@ -26,8 +22,8 @@
         <hr>
     </div>
 
-    <div class="table">
-        <div class="load_controls">
+    <div id="table">
+        <div id="load_controls">
             <button>New Save</button>
             <button>Load Save</button>
             <span>
@@ -39,19 +35,29 @@
             <button>Delete</button>
             <button>Download Save</button>
         </div>
-        <table class="befunge_code">
+        <table id="befunge_code">
             <tr>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td class="control"></td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
                 <td class="control"></td>
+                <td class="empty"></td>
+                <td class="empty"></td>
                 <td class="empty"></td>
             </tr>
 
         </table>
     </div>
-    <div class="instructions">
+    <div id="instructions">
         <table>
             <tbody><tr>
                 <td width="5%"><code>0-9</code></td>
@@ -168,6 +174,13 @@
             </tbody></table>
     </div>
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/index.js"></script>
+    <script src="js/utility.js"></script>
 
 </body>
 </html>
