@@ -42,7 +42,7 @@ function cell_click(){
 function arrow_press(code){
     find_at_coords().css(colours["DEFAULT"]);
     // Iterate through dimensions
-    for (var x = 0; x += 1; x < 2){
+    for (var x = 0; x < 2; x += 1){
         selected_index[x] += movements[code][x];
         // -2 : -1 for the controls, -1 for the change from length to index
         if (selected_index[x] == -1) selected_index[x] = dimensions[x] - 2;
