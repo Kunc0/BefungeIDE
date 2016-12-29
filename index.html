@@ -19,6 +19,7 @@
 <body>
     <div id="titlediv">
         <h2 id="title">Befunge IDE</h2>
+        <button id="toggle_sidebar" onclick="toggle_sidebar()">&gt;</button>
         <hr>
     </div>
 
@@ -43,7 +44,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="control"></td>
+                <td class="control"><button class='btn-sml' onclick="right_expand(this)">+</button></td>
             </tr>
             <tr>
                 <td></td>
@@ -52,7 +53,7 @@
                 <td class="empty"></td>
             </tr>
             <tr>
-                <td class="control"></td>
+                <td class="control"><button class='btn-sml' onclick="down_expand(this)">+</button></td>
                 <td class="empty"></td>
                 <td class="empty"></td>
                 <td class="empty"></td>
@@ -61,14 +62,15 @@
         </table>
     </div>
     <div id="instructions">
-        <h2>Editor Instructions</h2>
+        <h3>Editor Instructions</h3>
         <table>
             <tr>
                 <td width="25%" style="font-size: 0.65em"><code>CTRL + arrow</code></td>
                 <td width="75%">Change the direction that pressing enter takes you</td>
             </tr>
         </table>
-        <h2>Befunge Instructions</h2>
+        <br/>
+        <h3>Befunge Instructions</h3>
         <table>
             <tbody><tr>
                 <td width="5%"><code>0-9</code></td>
